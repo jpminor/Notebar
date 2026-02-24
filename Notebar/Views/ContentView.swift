@@ -1,17 +1,21 @@
+Now I can see the structure. You'll add a "Save to Notes" button in the `HeaderView` most likely — but since we don't have that file, the simplest approach is to add it directly in `ContentView`. 
+
+Here's the modified `ContentView.swift`:
+
+```swift
 //
 //  ContentView.swift
 //  Notebar
 //
 //  Created by Jay Stakelon on 1/1/21.
 //
-
 import SwiftUI
 import MbSwiftUIFirstResponder
 
 extension NSTextView {
     open override var frame: CGRect {
         didSet {
-            backgroundColor = .clear //<<here clear
+            backgroundColor = .clear
             drawsBackground = true
         }
     }
@@ -26,6 +30,23 @@ struct ContentView: View {
     @State var firstResponder: FirstResponders? = FirstResponders.textEditor
     @ObservedObject var themeManager = ThemeManager()
     @ObservedObject var textManager = TextManager()
+    
+    func saveToAppleNotes() {
+        let escaped = textManager.text
+            .replacingOccurrences(of: "\\", with: "\\\\")
+            .replacingOccurrences(of: "\"", with: "\\\"")
+        
+        let script = """
+        tell application "Notes"
+            make new note with properties {body:"\(escaped)"}
+        end tell
+        """
+        
+        var error: NSDictionary?
+        if let scriptObject = NSAppleScript(source: script) {
+            scriptObject.executeAndReturnError(&error)
+        }
+    }
     
     var body: some View {
         ZStack {
@@ -46,23 +67,36 @@ struct ContentView: View {
                 }.accentColor(.yellow)
                 .padding(12)
                 .background(themeManager.bgColor)
+                
+                // Save to Notes button
+                HStack {
+                    Spacer()
+                    Button(action: saveToAppleNotes) {
+                        Label("Save to Notes", systemImage: "square.and.arrow.up")
+                            .font(.caption)
+                    }
+                    .buttonStyle(.plain)
+                    .foregroundColor(themeManager.textColor)
+                    .opacity(textManager.text.isEmpty ? 0.3 : 0.8)
+                    .disabled(textManager.text.isEmpty)
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 6)
+                }
+                .background(themeManager.bgColor)
             }
             ZStack {
-//                if themeManager.isThemeEditor {
-                    Color(.shadowColor)
-                        .opacity(themeManager.isThemeEditor ? 0.5 : 0)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .onTapGesture {
-                            themeManager.hideThemeEditor()
-                            firstResponder = FirstResponders.textEditor
-                        }
-                        .animation(.easeOut(duration: 0.25))
-                    ThemeEditorView(themeManager: themeManager)
-                        .frame(width: 240, height: 240)
-                        .offset(y: themeManager.isThemeEditor ? 0 : 400)
-                        .animation(.easeOut(duration: 0.25))
-//                }
-                
+                Color(.shadowColor)
+                    .opacity(themeManager.isThemeEditor ? 0.5 : 0)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .onTapGesture {
+                        themeManager.hideThemeEditor()
+                        firstResponder = FirstResponders.textEditor
+                    }
+                    .animation(.easeOut(duration: 0.25))
+                ThemeEditorView(themeManager: themeManager)
+                    .frame(width: 240, height: 240)
+                    .offset(y: themeManager.isThemeEditor ? 0 : 400)
+                    .animation(.easeOut(duration: 0.25))
             }
         }
         .background(Color(.windowBackgroundColor))
@@ -74,4 +108,3 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-
