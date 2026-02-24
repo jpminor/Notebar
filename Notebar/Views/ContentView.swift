@@ -34,6 +34,7 @@ struct ContentView: View {
         
         let script = """
         tell application "Notes"
+            activate
             make new note with properties {body:"\(escaped)"}
         end tell
         """
