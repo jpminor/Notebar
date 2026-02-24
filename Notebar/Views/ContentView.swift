@@ -27,28 +27,29 @@ struct ContentView: View {
     @ObservedObject var textManager = TextManager()
     
     func saveToAppleNotes() {
-        print("Save to Notes triggered")
-        let escaped = textManager.text
-            .replacingOccurrences(of: "\\", with: "\\\\")
-            .replacingOccurrences(of: "\"", with: "\\\"")
+        // Launch Notes first
+        NSWorkspace.shared.open(URL(fileURLWithPath: "/System/Applications/Notes.app"))
         
-        let script = """
-        tell application "Notes"
-            activate
-            make new note with properties {body:"\(escaped)"}
-        end tell
-        """
-        
-        print("Script: \(script)")
-        var error: NSDictionary?
-        if let scriptObject = NSAppleScript(source: script) {
-            let result = scriptObject.executeAndReturnError(&error)
-            print("Result: \(result)")
-            if let err = error {
-                print("AppleScript error: \(err)")
+        // Give it a moment to launch
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            let escaped = textManager.text
+                .replacingOccurrences(of: "\\", with: "\\\\")
+                .replacingOccurrences(of: "\"", with: "\\\"")
+            
+            let script = """
+            tell application "Notes"
+                make new note with properties {body:"\(escaped)"}
+            end tell
+            """
+            
+            var error: NSDictionary?
+            if let scriptObject = NSAppleScript(source: script) {
+                let result = scriptObject.executeAndReturnError(&error)
+                print("Result: \(result)")
+                if let err = error {
+                    print("AppleScript error: \(err)")
+                }
             }
-        } else {
-            print("Failed to create NSAppleScript object")
         }
     }
     
