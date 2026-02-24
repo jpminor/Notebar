@@ -56,7 +56,7 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             VStack(alignment: .leading, spacing: 0) {
-                HeaderView(themeManager: themeManager)
+                HeaderView(themeManager: themeManager, onSaveToNotes: saveToAppleNotes)
                 ZStack(alignment: .topLeading) {
                     TextEditor(text: $textManager.text)
                         .firstResponder(id: FirstResponders.textEditor, firstResponder: $firstResponder)
@@ -71,22 +71,6 @@ struct ContentView: View {
                     }
                 }.accentColor(.yellow)
                 .padding(12)
-                .background(themeManager.bgColor)
-                
-                // Save to Notes button
-                HStack {
-                    Spacer()
-                    Button(action: saveToAppleNotes) {
-                        Label("Save to Notes", systemImage: "square.and.arrow.up")
-                            .font(.caption)
-                    }
-                    .buttonStyle(.plain)
-                    .foregroundColor(themeManager.textColor)
-                    .opacity(textManager.text.isEmpty ? 0.3 : 0.8)
-                    .disabled(textManager.text.isEmpty)
-                    .padding(.horizontal, 12)
-                    .padding(.vertical, 6)
-                }
                 .background(themeManager.bgColor)
             }
             ZStack {
