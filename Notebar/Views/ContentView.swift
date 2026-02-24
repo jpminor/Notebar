@@ -31,7 +31,7 @@ struct ContentView: View {
         NSWorkspace.shared.open(URL(fileURLWithPath: "/System/Applications/Notes.app"))
         
         // Give it a moment to launch
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             let escaped = textManager.text
                 .replacingOccurrences(of: "\\", with: "\\\\")
                 .replacingOccurrences(of: "\"", with: "\\\"")
