@@ -8,7 +8,7 @@ It's an always-on, stream-of-consciousness notepad; nothing more, nothing less.
 
 ### Get Notebar
 
-[Download](https://github.com/stakes/Notebar/releases/download/1.0-alpha/Notebar.zip) and unzip the app, then put it into your Applications folder.
+[Download](https://github.com/jpminor/Notebar/releases/download/1.1-alpha/Notebar.zip) and unzip the app, then put it into your Applications folder.
 
 ### What it does
 
@@ -16,4 +16,4 @@ Notebar is the most basic little notepad you could imagine and it lives in your 
 
 ### Find a bug?
 
-Please [create an issue](https://github.com/stakes/Notebar/issues) for it!
+Please [create an issue](https://github.com/jpminor/Notebar/issues) for it!
