@@ -6,14 +6,19 @@
 //
 
 import SwiftUI
-
 struct HeaderView: View {
     @ObservedObject var themeManager: ThemeManager
+    var onSaveToNotes: () -> Void
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             HStack {
                 Text("Notebar").font(Font.system(size: 12, weight: .bold, design: .rounded))
                 Spacer()
+                Button(action: onSaveToNotes) {
+                    Label("Save to Notes", systemImage: "square.and.arrow.up")
+                        .font(.caption)
+                }
+                .buttonStyle(.plain)
                 DropdownMenuView(themeManager: themeManager).frame(width: 24, height: 24)
             }
             .padding(.vertical, 4)
