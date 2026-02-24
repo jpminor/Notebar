@@ -1,6 +1,6 @@
 # Notebar
 
-### Take simple, plain-text notes in your MacOS menu bar with the option to save them in Apple Notes).
+### Take simple, plain-text notes in your MacOS menu bar with the option to save them to Apple Notes).
 
 Notebar's ready for quick notetaking whenever inspiration strikes.
 
