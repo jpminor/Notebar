@@ -1,8 +1,3 @@
-Now I can see the structure. You'll add a "Save to Notes" button in the `HeaderView` most likely — but since we don't have that file, the simplest approach is to add it directly in `ContentView`. 
-
-Here's the modified `ContentView.swift`:
-
-```swift
 //
 //  ContentView.swift
 //  Notebar
