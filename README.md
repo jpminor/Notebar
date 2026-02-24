@@ -1,6 +1,6 @@
 # Notebar
 
-### Take simple, plain-text notes in your MacOS menu bar (and save them to Apple Notes).
+### Take simple, plain-text notes in your MacOS menu bar with the option to save them in Apple Notes).
 
 Notebar's ready for quick notetaking whenever inspiration strikes.
 
@@ -12,7 +12,7 @@ It's an always-on, stream-of-consciousness notepad; nothing more, nothing less.
 
 ### What it does
 
-Notebar is the most basic little notepad you could imagine and it lives in your Mac's menu bar. You can take plain text notes, really quickly, and do something with them later. Or not!
+Notebar is the most basic little notepad you could imagine and it lives in your Mac's menu bar. You can take plain text notes, really quickly, and save them to Apple Notes to do something with them later. Or not!
 
 ### Find a bug?
 
