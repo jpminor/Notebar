@@ -27,6 +27,7 @@ struct ContentView: View {
     @ObservedObject var textManager = TextManager()
     
     func saveToAppleNotes() {
+        print("Save to Notes triggered")
         let escaped = textManager.text
             .replacingOccurrences(of: "\\", with: "\\\\")
             .replacingOccurrences(of: "\"", with: "\\\"")
@@ -37,9 +38,16 @@ struct ContentView: View {
         end tell
         """
         
+        print("Script: \(script)")
         var error: NSDictionary?
         if let scriptObject = NSAppleScript(source: script) {
-            scriptObject.executeAndReturnError(&error)
+            let result = scriptObject.executeAndReturnError(&error)
+            print("Result: \(result)")
+            if let err = error {
+                print("AppleScript error: \(err)")
+            }
+        } else {
+            print("Failed to create NSAppleScript object")
         }
     }
     
