@@ -19,6 +19,7 @@ struct HeaderView: View {
                         .font(.caption)
                 }
                 .buttonStyle(.plain)
+                .focusable(false)
                 DropdownMenuView(themeManager: themeManager).frame(width: 24, height: 24)
             }
             .padding(.vertical, 4)
