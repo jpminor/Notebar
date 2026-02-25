@@ -1,14 +1,13 @@
 # Notebar
 
-### Take simple, plain-text notes in your MacOS menu bar, now with the option to save them to Apple Notes.
+### Take simple, plain-text notes in your MacOS menu bar.
 
 Notebar's ready for quick notetaking whenever inspiration strikes.
-
 It's an always-on, stream-of-consciousness notepad; nothing more, nothing less.
 
 ### Get Notebar
 
-[Download](https://github.com/jpminor/Notebar/releases/download/v1.1-alpha/Notebar-1.1a.zip) and unzip the app, then put it into your Applications folder.
+[Download](https://github.com/jpminor/Notebar/releases/download/v1.2-alpha/Notebar-1.2a.zip) and unzip the app, then put it into your Applications folder.
 
 ### What it does
 
