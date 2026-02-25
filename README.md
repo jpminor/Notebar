@@ -7,7 +7,8 @@ It's an always-on, stream-of-consciousness notepad; nothing more, nothing less.
 
 ### Get Notebar
 
-[Download](https://github.com/jpminor/Notebar/releases/download/v1.2-alpha/Notebar-1.2a.zip) and unzip the app, then put it into your Applications folder.
+[Download](https://github.com/jpminor/Notebar/releases/download/v1.2-alpha/Notebar-1.2a.zip) and unzip Notebar, drag it into your Applications folder, and add it to your Login Items so it’s ready whenever you need it.
+
 
 ### Keyboard Commands
 
