@@ -9,9 +9,7 @@ It's an always-on, stream-of-consciousness notepad; nothing more, nothing less.
 
 [Download](https://github.com/jpminor/Notebar/releases/download/v1.2-alpha/Notebar-1.2a.zip) and unzip the app, then put it into your Applications folder.
 
-### What it does
-
-Notebar is the most basic little notepad you could imagine and it lives in your Mac's menu bar. You can take plain text notes, really quickly, and save them to Apple Notes to do something with them later. Or not!
+### Keyboard Commands
 
 ⌘ S - Save to Apple Notes
 
