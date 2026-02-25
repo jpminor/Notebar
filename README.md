@@ -1,6 +1,6 @@
 # Notebar
 
-### Take notes from your MacOS menu bar.
+### Take notes from your MacOS menu bar. Save them to Apple Notes.
 
 Notebar's ready for quick notetaking whenever inspiration strikes or you just need a place to jot something down.
 It's an always-on, stream-of-consciousness notepad; nothing more, nothing less.
