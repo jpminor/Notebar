@@ -1,4 +1,4 @@
-# Notebar
+# Notebar + Apple Notes
 
 ### Take notes from your MacOS menu bar. Save them to Apple Notes.
 
