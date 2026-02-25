@@ -14,7 +14,9 @@ It's an always-on, stream-of-consciousness notepad; nothing more, nothing less.
 Notebar is the most basic little notepad you could imagine and it lives in your Mac's menu bar. You can take plain text notes, really quickly, and save them to Apple Notes to do something with them later. Or not!
 
 ⌘ S - Save to Apple Notes
+
 ⌘ K - Clear
+
 ⌘ Q - Quit
 
 ### Find a bug?
